@@ -115,3 +115,39 @@ class Trainer:
         loss_path = os.path.join(self.model_dir, "loss.json")
         with open(loss_path, "w") as fp:
             json.dump(self.loss, fp)
+
+#
+# CLASSIF PART !!
+#
+
+def train(model, iterator, optimizer, criterion):
+
+    epoch_loss = 0
+    epoch_acc = 0
+
+    model.train()
+
+    for batch in iterator:
+
+        #
+        # Your turn
+        #
+
+    return epoch_loss / len(iterator), epoch_acc / len(iterator)
+
+
+def evaluate(model, iterator, criterion):
+
+    epoch_loss = 0
+    epoch_acc = 0
+
+    model.eval()
+
+    with torch.no_grad():
+        for batch in iterator:
+
+            #
+            # Your turn
+            #
+
+    return epoch_loss / len(iterator), epoch_acc / len(iterator)

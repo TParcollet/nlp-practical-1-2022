@@ -6,6 +6,14 @@ from torch.optim.lr_scheduler import LambdaLR
 
 from utils.model import CBOW_Model, SkipGram_Model
 
+def binary_accuracy(preds, y):
+    """
+    Returns accuracy per batch, i.e. if you get 8/10 right, this returns 0.8, NOT 8
+    """
+
+    # round predictions to the closest integer
+    
+    return ...
 
 def get_model_class(model_name: str):
     if model_name == "cbow":
@@ -23,11 +31,11 @@ def get_optimizer_class(name: str):
     else:
         raise ValueError("Choose optimizer from: Adam")
         return
-    
+
 
 def get_lr_scheduler(optimizer, total_epochs: int, verbose: bool = True):
     """
-    Scheduler to linearly decrease learning rate, 
+    Scheduler to linearly decrease learning rate,
     so thatlearning rate after the last epoch is 0.
     """
     lr_lambda = lambda epoch: (total_epochs - epoch) / total_epochs
@@ -40,10 +48,9 @@ def save_config(config: dict, model_dir: str):
     config_path = os.path.join(model_dir, "config.yaml")
     with open(config_path, "w") as stream:
         yaml.dump(config, stream)
-        
-        
+
+
 def save_vocab(vocab, model_dir: str):
     """Save vocab file to `model_dir` directory"""
     vocab_path = os.path.join(model_dir, "vocab.pt")
     torch.save(vocab, vocab_path)
-    

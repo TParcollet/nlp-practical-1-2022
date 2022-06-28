@@ -29,3 +29,15 @@ class SkipGram_Model(nn.Module):
     def forward(self, inputs_):
 
         return x
+
+class RNN_classif(nn.Module):
+    def __init__(self, input_dim, embedding_dim, hidden_dim, output_dim):
+        super(RNN_classif, self).__init__()
+
+        #
+        # We wish to develop a RNN that, from the text, produces positive or negative (1 / 0)
+        #
+
+    def forward(self, text): # text = [len, batch_size]
+
+        return ...
